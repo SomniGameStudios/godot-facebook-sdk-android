@@ -5,22 +5,20 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-// TODO: Update value to your plugin's name.
-val pluginName = "GodotAndroidPluginTemplate"
+val pluginName = "GodotFacebookSdkAndroid"
 
-// TODO: Update value to match your plugin's package name.
-val pluginPackageName = "org.godotengine.plugin.android.template"
+val pluginPackageName = "com.somnigamestudios.godot.facebooksdkandroid"
 
 android {
     namespace = pluginPackageName
-    compileSdk = 33
+    compileSdk = 35
 
     buildFeatures {
         buildConfig = true
     }
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 26
 
         manifestPlaceholders["godotPluginName"] = pluginName
         manifestPlaceholders["godotPluginPackageName"] = pluginPackageName
@@ -38,8 +36,10 @@ android {
 }
 
 dependencies {
-    implementation("org.godotengine:godot:4.3.0.stable")
-    // TODO: Additional dependencies should be added to export_plugin.gd as well.
+    implementation("org.godotengine:godot:4.4.1.stable")
+
+    // Facebook SDK dependencies
+    implementation("com.facebook.android:facebook-android-sdk:latest.release")
 }
 
 // BUILD TASKS DEFINITION
@@ -47,14 +47,14 @@ val copyDebugAARToDemoAddons by tasks.registering(Copy::class) {
     description = "Copies the generated debug AAR binary to the plugin's addons directory"
     from("build/outputs/aar")
     include("$pluginName-debug.aar")
-    into("demo/addons/$pluginName/bin/debug")
+    into("demo/addons/$pluginName/bin")
 }
 
 val copyReleaseAARToDemoAddons by tasks.registering(Copy::class) {
     description = "Copies the generated release AAR binary to the plugin's addons directory"
     from("build/outputs/aar")
     include("$pluginName-release.aar")
-    into("demo/addons/$pluginName/bin/release")
+    into("demo/addons/$pluginName/bin")
 }
 
 val cleanDemoAddons by tasks.registering(Delete::class) {

@@ -10,11 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven("https://plugins.gradle.org/m2/")
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     }
 }
 
-// TODO: Update project's name.
-rootProject.name = "GodotAndroidPluginTemplate"
+rootProject.name = "GodotFacebookSdkAndroid"
 include(":plugin")

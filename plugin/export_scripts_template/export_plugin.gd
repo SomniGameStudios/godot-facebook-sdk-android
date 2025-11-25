@@ -1,24 +1,20 @@
 @tool
 extends EditorPlugin
 
-# A class member to hold the editor export plugin during its lifecycle.
 var export_plugin : AndroidExportPlugin
 
 func _enter_tree():
-	# Initialization of the plugin goes here.
+	add_autoload_singleton("FacebookSdkWrapper", "res://addons/GodotFacebookSdkAndroid/facebook_sdk_wrapper.gd")
 	export_plugin = AndroidExportPlugin.new()
 	add_export_plugin(export_plugin)
 
-
 func _exit_tree():
-	# Clean-up of the plugin goes here.
+	remove_autoload_singleton("FacebookSdkWrapper")
 	remove_export_plugin(export_plugin)
 	export_plugin = null
 
-
 class AndroidExportPlugin extends EditorExportPlugin:
-	# TODO: Update to your plugin's name.
-	var _plugin_name = "GodotAndroidPluginTemplate"
+	var _plugin_name = "GodotFacebookSdkAndroid"
 
 	func _supports_platform(platform):
 		if platform is EditorExportPlatformAndroid:
@@ -27,16 +23,15 @@ class AndroidExportPlugin extends EditorExportPlugin:
 
 	func _get_android_libraries(platform, debug):
 		if debug:
-			return PackedStringArray([_plugin_name + "/bin/debug/" + _plugin_name + "-debug.aar"])
+			return PackedStringArray([_plugin_name + "/bin/" + _plugin_name + "-debug.aar"])
 		else:
-			return PackedStringArray([_plugin_name + "/bin/release/" + _plugin_name + "-release.aar"])
+			return PackedStringArray([_plugin_name + "/bin/" + _plugin_name + "-release.aar"])
 
 	func _get_android_dependencies(platform, debug):
-		# TODO: Add remote dependices here.
-		if debug:
-			return PackedStringArray([])
-		else:
-			return PackedStringArray([])
+		# Facebook SDK dependencies
+		return PackedStringArray([
+			"com.facebook.android:facebook-core:latest.release"
+		])
 
 	func _get_name():
 		return _plugin_name
