@@ -20,7 +20,7 @@ func _initialize_facebook_sdk_plugin() -> void:
 
 	if Engine.has_singleton(plugin_name):
 		_facebook_sdk_plugin = Engine.get_singleton(plugin_name)
-	else:
+	elif OS.has_feature("template"):
 		printerr("Couldn't find Facebook plugin: " + plugin_name)
 
 func _set_debug_mode() -> void:
