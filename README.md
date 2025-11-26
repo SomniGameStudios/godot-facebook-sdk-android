@@ -1,99 +1,96 @@
-# Godot Android Plugin Template
-This repository serves as a quickstart template for building a Godot Android plugin for Godot 4.2+.
+# Facebook Android SDK Plugin for Godot 4.4.1+
 
-## Contents
-* An illustrative simple Godot project: [`plugin/demo`](plugin/demo)
-* Preconfigured gradle build file to build and package the contents for the Android plugin: 
-  [`plugin/build.gradle.kts`](plugin/build.gradle.kts)
-* Preconfigured export scripts template: 
-  [`plugin/export_scripts_template`](plugin/export_scripts_template)
-* Preconfigured manifest for the Android plugin:
-  [`plugin/src/main/AndroidManifest.xml`](plugin/src/main/AndroidManifest.xml)
-* Preconfigured source files for the Kotlin/Java logic of the Android plugin: 
-  [`plugin/src/main/java`](plugin/src/main/java)
+A native Android integration of the [Facebook SDK](https://developers.facebook.com/docs/android/) for Godot Engine 4.4.1+. This plugin is **production-tested** and currently used in [Stepland](https://www.instagram.com/steplandapp/), a mobile rhythm game where you step, jump, and dance your way through challenging levels. Stepland combines fitness with gaming, turning your movement into an interactive musical experience.
+
+## Somni Game Studios
+
+[Somni Game Studios Web](https://somnigamestudios.com/)
+
+## Stepland
+
+This plugin is proudly used in [Stepland](https://stepland.es/):
+- 📱 [Instagram](https://www.instagram.com/steplandapp/)
+- 🍎 [iOS App Store](https://apps.apple.com/es/app/stepland/id6749793290)
+- 🤖 [Google Play Store](https://play.google.com/store/apps/details?id=com.somnigamestudios.stepland)
+
+## Features
+
+- Integrates [Facebook Android SDK](https://developers.facebook.com/docs/android/) for Godot 4.4.1+
+- Implements [Automatically Logged Events](https://developers.facebook.com/docs/app-events/getting-started-app-events-android) for app analytics
+- Provides a `FacebookSdkWrapper` autoload for easy access throughout your project
+
+## Installation
+
+1. Download the latest release or build the plugin from source
+2. Copy the plugin files to your Godot project's `addons/` folder
+3. Enable the plugin in `Project` -> `Project Settings...` -> `Plugins`
+
+## Configuration
+
+### Required: Facebook App Credentials
+
+You **must** configure your Facebook App ID and Client Token before using this plugin:
+
+1. Open `plugin/src/main/res/values/strings.xml`
+2. Replace the placeholder values with your actual Facebook credentials:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
+    <string name="facebook_client_token">YOUR_FACEBOOK_CLIENT_TOKEN</string>
+</resources>
+```
+
+To obtain these credentials, follow the [Facebook Android Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).
+
+### Autoload Setup
+
+The plugin automatically creates a `FacebookSdkWrapper` autoload that handles platform detection and initialization. This wrapper is ready to use once the plugin is enabled.
 
 ## Usage
-**Note:** [Android Studio](https://developer.android.com/studio) is the recommended IDE for
-developing Godot Android plugins. 
-You can install the latest version from https://developer.android.com/studio.
 
-To use this template, log in to github and click the green "Use this template" button at the top 
-of the repository page.
-This will let you create a copy of this repository with a clean git history.
+The `FacebookSdkWrapper` autoload is automatically available in your project. It handles:
+- Platform detection (Android/iOS)
+- Facebook SDK initialization
+- Debug mode configuration (enabled automatically in debug builds)
 
-### Configuring the template
-After cloning your own copy to your local machine, configure the project as needed. Several 
-`TODO` have been added to the project to help identify where changes are needed; here's an 
-overview of the minimum set of modifications needed:
-* Update the name of the Android plugin. Note that the name should not contain any spaces:
-  * Open [`settings.gradle.kts`](settings.gradle.kts) and update the value for `rootProject.name`
-  * Open [`plugin/build.gradle.kts`](plugin/build.gradle.kts) and update the value for `pluginName`
-  * Open [`plugin/export_scripts_template/plugin.cfg`](plugin/export_scripts_template/plugin.cfg)
-    and update the value for `name`
-  * Open [`plugin/export_scripts_template/export_plugin.gd`](plugin/export_scripts_template/export_plugin.gd)
-    and update the value for `_plugin_name`
-* Update the package name of the Android plugin:
-  * Open [`plugin/build.gradle.kts`](plugin/build.gradle.kts) and update the value for `pluginPackageName`
-  * Make sure subdirectories under [`plugin/src/main/java`](plugin/src/main/java) match the 
-    updated package name
-  * Make sure that `package` at the top of [`GodotAndroidPlugin.kt`](plugin/src/main/java/org/godotengine/plugin/android/godot/GodotAndroidPlugin.kt)
-    matches the updated package name
-* Complete the plugin configuration
-  * Open [`plugin/export_scripts_template/plugin.cfg`](plugin/export_scripts_template/plugin.cfg)
-    * Update the `description` field
-    * Update the `author` field
-    * Update the `version` field
+## Building from Source
 
-### Building the configured Android plugin
-- In a terminal window, navigate to the project's root directory and run the following command:
-```
+### Prerequisites
+- [Android Studio](https://developer.android.com/studio) (recommended)
+- Godot 4.4.1+
+
+### Build Steps
+
+1. Clone this repository
+2. Navigate to the project's root directory in a terminal
+3. Run the build command:
+```bash
 ./gradlew assemble
 ```
-- On successful completion of the build, the output files can be found in
-  [`plugin/demo/addons`](plugin/demo/addons)
+4. On successful completion, the output files will be in [`plugin/demo/addons`](plugin/demo/addons)
 
-### Testing the Android plugin
-You can use the included [Godot demo project](plugin/demo/project.godot) to test the built Android 
-plugin
+### Testing
 
-- Open the demo in Godot (4.2 or higher)
-- Navigate to `Project` -> `Project Settings...` -> `Plugins`, and ensure the plugin is enabled
-- Install the Godot Android build template by clicking on `Project` -> `Install Android Build Template...`
-- Open [`plugin/demo/main.gd`](plugin/demo/main.gd) and update the logic as needed to reference 
-  your plugin and its methods
-- Connect an Android device to your machine and run the demo on it
+Use the included [demo project](plugin/demo/project.godot) to test the plugin:
 
-#### Tips
-Additional dependencies added to [`plugin/build.gradle.kts`](plugin/build.gradle.kts) should be added to the `_get_android_dependencies`
-function in [`plugin/export_scripts_template/export_plugin.gd`](plugin/export_scripts_template/export_plugin.gd).
+1. Open the demo in Godot 4.4.1 or higher
+2. Navigate to `Project` -> `Project Settings...` -> `Plugins` and enable the plugin
+3. Install the Android Build Template
+4. Connect an Android device and run the demo
 
-##### Simplify access to the exposed Java / Kotlin APIs
 
-To make it easier to access the exposed Java / Kotlin APIs in the Godot Editor, it's recommended to 
-provide one (or multiple) gdscript wrapper class(es) for your plugin users to interface with.
 
-For example:
+## License
 
-```
-class_name PluginInterface extends Object
+See [LICENSE](LICENSE) for details.
 
-## Interface used to access the functionality provided by this plugin
+## Contributing
 
-var _plugin_name = "GDExtensionAndroidPluginTemplate"
-var _plugin_singleton
+Contributions are welcome! Please feel free to submit issues or pull requests.
 
-func _init():
-	if Engine.has_singleton(_plugin_name):
-		_plugin_singleton = Engine.get_singleton(_plugin_name)
-	else:
-		printerr("Initialization error: unable to access the java logic")
+## Support
 
-## Shows a 'Hello World' toast.
-func helloWorld():
-	if _plugin_singleton:
-		_plugin_singleton.helloWorld()
-	else:
-		printerr("Initialization error")
-
-```
+As a commercial studio, our time is literally money, and we can't dedicate as much time to support as we would like. However, we'll do our best to address issues when possible. For bugs, questions, or feature requests, please open an issue on this repository. Community contributions and pull requests are especially appreciated!
 
