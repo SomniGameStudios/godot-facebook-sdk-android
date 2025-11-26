@@ -16,7 +16,7 @@ func _ready() -> void:
 		pass
 
 func _initialize_facebook_sdk_plugin() -> void:
-	var plugin_name = "GodotFacebookAppEventsAndroid"
+	var plugin_name = "GodotFacebookSdkAndroid"
 
 	if Engine.has_singleton(plugin_name):
 		_facebook_sdk_plugin = Engine.get_singleton(plugin_name)
