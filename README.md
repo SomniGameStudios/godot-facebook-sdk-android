@@ -3,8 +3,8 @@
 A native Android integration of the [Facebook SDK](https://developers.facebook.com/docs/android/) for Godot Engine 4.4.1+.
 
 **Production-tested** in [Stepland](https://stepland.es/) by [Somni Game Studios](https://somnigamestudios.com/)
-💚 A cozy game that turns healthy habits into a relaxing experience.
-🌿 Walk, hydrate, meditate, and exercise to grow your town and unlock cute characters.
+- 💚 A cozy game that turns healthy habits into a relaxing experience.
+- 🌿 Walk, hydrate, meditate, and exercise to grow your town and unlock cute characters.
 
 - 📱 [Instagram](https://www.instagram.com/steplandapp/)
 - 🍎 [iOS](https://apps.apple.com/es/app/stepland/id6749793290)
