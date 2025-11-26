@@ -1,10 +1,12 @@
 # Facebook Android SDK Plugin for Godot 4.4.1+
 
-A native Android integration of the [Facebook SDK](https://developers.facebook.com/docs/android/) for Godot Engine 4.4.1+. This plugin is **production-tested** and currently used in [Stepland](https://www.instagram.com/steplandapp/), a mobile rhythm game where you step, jump, and dance your way through challenging levels. Stepland combines fitness with gaming, turning your movement into an interactive musical experience.
+A native Android integration of the [Facebook SDK](https://developers.facebook.com/docs/android/) for Godot Engine 4.4.1+.
+
+This plugin is **production-tested** and currently used in [Stepland](https://www.instagram.com/steplandapp/), a cozy game that turns your healthy habits into a relaxing game. 🌿 Walk, hydrate, meditate, rest, and exercise... earn rewards to grow your town and unlock super-cute characters.
 
 ## Somni Game Studios
 
-[Somni Game Studios Web](https://somnigamestudios.com/)
+💚 At [Somni](https://somnigamestudios.com/), we're working to improve people's lives throgh videogames!
 
 ## Stepland
 
