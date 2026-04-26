@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-    implementation("org.godotengine:godot:4.4.1.stable")
+    implementation("org.godotengine:godot:4.6.2.stable")
 
     // Facebook SDK dependencies
     implementation("com.facebook.android:facebook-android-sdk:latest.release")

@@ -1,6 +1,6 @@
-# Facebook Android SDK Plugin for Godot 4.4.1+
+# Facebook Android SDK Plugin for Godot 4.6.2+
 
-A native Android integration of the [Facebook SDK](https://developers.facebook.com/docs/android/) for Godot Engine 4.4.1+.
+A native Android integration of the [Facebook SDK](https://developers.facebook.com/docs/android/) for Godot Engine 4.6.2+.
 
 **Production-tested** in [Stepland](https://stepland.es/) by [Somni Game Studios](https://somnigamestudios.com/)
 - 💚 A cozy game that turns healthy habits into a relaxing experience.
